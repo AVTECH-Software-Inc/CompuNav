@@ -26,7 +26,7 @@ public class Button extends JButton implements Serializable {
 	private PopupMenu popupMenu;
 	private boolean menu;
 
-	public static final String saveDir = "C:\\Users\\" + System.getProperty("user.name") + "\\AppData\\Roaming\\CompuNav Config.cpconfig";
+	public static final String saveDir = "C:\\Users\\" + System.getProperty("user.name") + "\\AppData\\Roaming\\compunav_config.cpconfig";
 
 	public Button(String name, Action action, boolean menu) {
 		this.name = name;
