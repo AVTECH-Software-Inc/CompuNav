@@ -1,13 +1,17 @@
 package org.avtechinc.compunav.core;
 
 import java.awt.Dimension;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.List;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import org.avtechinc.compunav.action.HelpAction;
@@ -21,6 +25,7 @@ public class Main extends JPanel {
 	private Button newButton = new Button("New Button", new NewAction(), false);
 
 	private String title = "CompuNav AVTECH Inc.";
+	private static String version = "﻿0.0.1";
 
 	public static int width = 260, height = 100;
 
@@ -41,6 +46,22 @@ public class Main extends JPanel {
 		panel.repaint();
 	}
 
+	private static String loadVersion() {
+		String v = "";
+
+		try {
+			FileReader fr = new FileReader("C:\\version.txt");
+			BufferedReader br = new BufferedReader(fr);
+			v = br.readLine();
+			fr.close();
+			br.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return v;
+	}
+
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args0) {
 		// see if there is that save file
@@ -58,6 +79,15 @@ public class Main extends JPanel {
 				Button.buttons.get(i).load();
 			}
 		}
+
+		PatchSystem ps = new PatchSystem();
+		String newVersion = loadVersion();
+		if (!newVersion.equals(version)) {
+			JOptionPane.showMessageDialog(null,
+					"There is a new version of CompuNav available for download.\nUpdating will NOT remove your current setup.\nTo download, please visit http://bit.ly/compunav");
+		}
+		File f = new File("C:\\version.txt");
+		f.delete();
 
 		panel = new Main();
 		panel.frame = new JFrame();
