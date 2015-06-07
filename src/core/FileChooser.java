@@ -23,30 +23,37 @@
 *along with CompuNav.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.avtechinc.compunav.action;
+package core;
 
-import java.awt.Desktop;
 import java.io.File;
-import java.io.IOException;
-import java.io.Serializable;
 
-public class Action implements Serializable {
-	private static final long serialVersionUID = 1L;
+import javax.swing.JFileChooser;
+import javax.swing.LookAndFeel;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
-	private String fileDir;
-
-	public Action() {
-	}
-
-	public Action(String dir) {
-		fileDir = dir;
-	}
-
-	public void action() {
+public class FileChooser {
+	public static String chooseFile() {
+		LookAndFeel previousLF = UIManager.getLookAndFeel();
 		try {
-			Desktop.getDesktop().open(new File(fileDir));
-		} catch (IOException e) {
-			e.printStackTrace();
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} catch (Exception e) {
+		}
+
+		JFileChooser jfc = new JFileChooser();
+
+		try {
+			UIManager.setLookAndFeel(previousLF);
+		} catch (UnsupportedLookAndFeelException e) {
+		}
+
+		jfc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+
+		if (jfc.showDialog(null, "Select") == JFileChooser.APPROVE_OPTION) {
+			File file = jfc.getSelectedFile();
+			return file.getPath();
+		} else {
+			return "";
 		}
 	}
 }

@@ -23,7 +23,7 @@
 *along with CompuNav.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.avtechinc.compunav.core;
+package core;
 
 import java.awt.Dimension;
 import java.io.BufferedReader;
@@ -39,8 +39,8 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import org.avtechinc.compunav.action.HelpAction;
-import org.avtechinc.compunav.action.NewAction;
+import action.HelpAction;
+import action.NewAction;
 
 public class Main extends JPanel {
 	private static final long serialVersionUID = 1L;

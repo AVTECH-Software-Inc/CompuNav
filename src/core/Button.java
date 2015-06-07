@@ -23,7 +23,7 @@
 *along with CompuNav.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.avtechinc.compunav.core;
+package core;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -39,7 +39,7 @@ import java.util.List;
 
 import javax.swing.JButton;
 
-import org.avtechinc.compunav.action.Action;
+import action.Action;
 
 public class Button extends JButton implements Serializable {
 	private static final long serialVersionUID = 1L;

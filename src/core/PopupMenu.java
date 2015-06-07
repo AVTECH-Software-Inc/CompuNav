@@ -23,7 +23,7 @@
 *along with CompuNav.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.avtechinc.compunav.core;
+package core;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -33,7 +33,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
 
-import org.avtechinc.compunav.action.Action;
+import action.Action;
 
 public class PopupMenu extends JPopupMenu implements Serializable {
 	private static final long serialVersionUID = 1L;

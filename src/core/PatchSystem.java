@@ -23,7 +23,7 @@
 *along with CompuNav.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.avtechinc.compunav.core;
+package core;
 
 import java.io.FileOutputStream;
 import java.net.URL;

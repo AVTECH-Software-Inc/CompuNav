@@ -23,15 +23,15 @@
 *along with CompuNav.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.avtechinc.compunav.action;
+package action;
 
 import java.io.Serializable;
 
 import javax.swing.JOptionPane;
 
-import org.avtechinc.compunav.core.Button;
-import org.avtechinc.compunav.core.FileChooser;
-import org.avtechinc.compunav.core.Main;
+import core.Button;
+import core.FileChooser;
+import core.Main;
 
 public class NewAction extends Action implements Serializable {
 	private static final long serialVersionUID = 1L;
